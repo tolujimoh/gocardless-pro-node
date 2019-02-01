@@ -1,20 +1,20 @@
 import { expect } from "chai";
 import Client from "../src/Client";
-import goCardlessPro from "../src/gocardless";
+import gocardless from "../src/gocardless";
 
 describe("goCardless", () => {
   it("module exports an object", () => {
-    expect(goCardlessPro).to.be.a("Object");
+    expect(gocardless).to.be.a("Object");
   });
   describe("Client", () => {
     it("exported Object has property named 'Client'", () => {
-      expect(goCardlessPro).to.have.property("Client");
+      expect(gocardless).to.have.property("Client");
     });
     it("property is instanceOf Client Class", () => {
       expect(
-        new goCardlessPro.Client({
+        new gocardless.Client({
           access_token: "sandbox_2hcd-Pd2U1jtAmOtusu51WIgTu8IHJ96qlFD1wSh",
-          environment: "sanbox",
+          environment: "sandbox",
         }),
       ).to.be.instanceOf(Client);
     });
