@@ -1,9 +1,43 @@
+import CreditorBankAccountResource from "./resources/CreditorBankAccountResource";
+import CreditorsResource from "./resources/CreditorsResource";
+import CustomerBankAccountsResource from "./resources/CustomerBankAccountsResource";
+import CustomerNotificationsResource from "./resources/CustomerNotificationsResource";
+import CustomersResource from "./resources/CustomersResource";
+import EventsResource from "./resources/EventsResource";
+import MandateImportEntriesResource from "./resources/MandateImportEntriesResource";
+import MandateImportsResource from "./resources/MandateImportsResource";
+import MandatesResource from "./resources/MandatesResource";
+import PaymentsResource from "./resources/PaymentsResource";
+import PayoutItemsResource from "./resources/PayoutItemsResource";
+import PayoutsResource from "./resources/PayoutsResource";
+import RedirectFlowsResource from "./resources/RedirectFlowsResource";
+import RefundsResource from "./resources/RefundsResource";
+import SubscriptionsResource from "./resources/SubscriptionsResource";
+
 import {
   ClientConfigWithBaseUrl,
   ClientConfigWithEnvironment,
   ClientInteface,
   Environment,
 } from "./types/client";
+import {
+  CreditorBankAccount,
+  CustomerBankAccounts,
+  CustomerNotifications,
+  Customers,
+  Events,
+  MandateImportEntries,
+  MandateImports,
+  Mandates,
+  Payments,
+  PayoutItems,
+  Payouts,
+  Refunds,
+  Subscriptions,
+} from "./types/resources";
+
+import { Creditors } from "./types/resources/Creditors";
+import { RedirectFlows } from "./types/resources/RedirectFlows";
 
 import {
   GOCARDLESS_API_DEFAULT_TIMEOUT,
@@ -12,7 +46,7 @@ import {
   SANDBOX_ENIVIRONMENT_URL,
 } from "./Constants";
 
-class Client {
+class Client implements ClientInteface {
   set environment(environment: Environment) {
     this.host = Client.getHostByEnvironment(environment);
     this._environment = environment;
@@ -62,6 +96,21 @@ class Client {
     // environment === "sandbox"
     return SANDBOX_ENIVIRONMENT_URL;
   }
+  public creditor_bank_account: CreditorBankAccount;
+  public creditors: Creditors;
+  public customer_bank_accounts: CustomerBankAccounts;
+  public customer_notifications: CustomerNotifications;
+  public customers: Customers;
+  public events: Events;
+  public mandate_import_entries: MandateImportEntries;
+  public mandate_imports: MandateImports;
+  public mandates: Mandates;
+  public payments: Payments;
+  public payout_items: PayoutItems;
+  public payouts: Payouts;
+  public redirect_flows: RedirectFlows;
+  public refunds: Refunds;
+  public subscriptions: Subscriptions;
 
   private _auth: string = "";
   private _host: string = "";
@@ -87,6 +136,22 @@ class Client {
     }
 
     this.auth = access_token;
+
+    this.creditor_bank_account = new CreditorBankAccountResource(this);
+    this.creditors = new CreditorsResource(this);
+    this.customer_bank_accounts = new CustomerBankAccountsResource(this);
+    this.customer_notifications = new CustomerNotificationsResource(this);
+    this.customers = new CustomersResource(this);
+    this.events = new EventsResource(this);
+    this.mandate_import_entries = new MandateImportEntriesResource(this);
+    this.mandate_imports = new MandateImportsResource(this);
+    this.mandates = new MandatesResource(this);
+    this.payments = new PaymentsResource(this);
+    this.payout_items = new PayoutItemsResource(this);
+    this.payouts = new PayoutsResource(this);
+    this.redirect_flows = new RedirectFlowsResource(this);
+    this.refunds = new RefundsResource(this);
+    this.subscriptions = new SubscriptionsResource(this);
   }
 
   private verifyConfig(
