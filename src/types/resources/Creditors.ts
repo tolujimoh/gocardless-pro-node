@@ -73,7 +73,7 @@ interface CreateCreditorRequest {
   region?: string;
 }
 
-interface ListCreditorRequest {
+interface UpdateCreditorRequest {
   /** The creditor’s name.
    */
   name: string;
@@ -246,14 +246,14 @@ interface Creditors {
   ) => ListCreditorSuccessResponse;
   update: (
     resourceId: string,
-    params: ListCreditorRequest & Params<ListCreditorRequest>,
+    params: UpdateCreditorRequest & Params<UpdateCreditorRequest>,
   ) => UpdateCreditorSuccessResponse;
   get: (resourceId: string) => GetCreditorSuccessResponse;
 }
 
 export {
   CreateCreditorRequest,
-  ListCreditorRequest,
+  UpdateCreditorRequest,
   CreateCreditorSuccessResponse,
   GetCreditorSuccessResponse,
   UpdateCreditorSuccessResponse,

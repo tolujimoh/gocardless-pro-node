@@ -6,8 +6,8 @@ import {
   CreateCreditorSuccessResponse,
   Creditors,
   GetCreditorSuccessResponse,
-  ListCreditorRequest,
   ListCreditorSuccessResponse,
+  UpdateCreditorRequest,
   UpdateCreditorSuccessResponse,
 } from "../types/resources/creditors";
 
@@ -38,15 +38,15 @@ class CreditorsResource extends GocardlessResource implements Creditors {
 
   public update(
     resourceId: string,
-    params: ListCreditorRequest,
+    params: UpdateCreditorRequest,
   ): UpdateCreditorSuccessResponse;
   public update(
     resourceId: string,
-    params: Params<ListCreditorRequest>,
+    params: Params<UpdateCreditorRequest>,
   ): UpdateCreditorSuccessResponse;
   public update(
     resourceId: string,
-    params: ListCreditorRequest | Params<ListCreditorRequest>,
+    params: UpdateCreditorRequest | Params<UpdateCreditorRequest>,
   ): UpdateCreditorSuccessResponse {
     return super.put(`/${this.resourceName}/${resourceId}`, params);
   }
