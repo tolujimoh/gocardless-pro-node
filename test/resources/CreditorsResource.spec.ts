@@ -43,7 +43,7 @@ describe("CreditorsResource", () => {
       expect(httpsStub.args[0][0]).to.be.eql({
         hostname: client.host,
         port: 443,
-        path: `/${client.redirect_flows.resourceName}`,
+        path: `/${client.creditors.resourceName}`,
         method: "POST",
         headers: {
           "Accept": "application/json",
@@ -71,9 +71,9 @@ describe("CreditorsResource", () => {
       expect(httpsStub.args[0][0]).to.be.eql({
         hostname: client.host,
         port: 443,
-        path: `/${
-          client.redirect_flows.resourceName
-        }?${client.creditors.buildQuery(LIST_CREDITORS_CORRECT_REQUEST)}`,
+        path: `/${client.creditors.resourceName}?${client.creditors.buildQuery(
+          LIST_CREDITORS_CORRECT_REQUEST,
+        )}`,
         method: "GET",
         headers: {
           "Accept": "application/json",
@@ -97,7 +97,7 @@ describe("CreditorsResource", () => {
       expect(httpsStub.args[0][0]).to.be.eql({
         hostname: client.host,
         port: 443,
-        path: `/${client.redirect_flows.resourceName}/CR123`,
+        path: `/${client.creditors.resourceName}/CR123`,
         method: "GET",
         headers: {
           "Accept": "application/json",
@@ -121,7 +121,7 @@ describe("CreditorsResource", () => {
       expect(httpsStub.args[0][0]).to.be.eql({
         hostname: client.host,
         port: 443,
-        path: `/${client.redirect_flows.resourceName}/CR123`,
+        path: `/${client.creditors.resourceName}/CR123`,
         method: "PUT",
         headers: {
           "Accept": "application/json",
