@@ -248,6 +248,7 @@ interface Creditors {
     resourceId: string,
     params: ListCreditorRequest & Params<ListCreditorRequest>,
   ) => UpdateCreditorSuccessResponse;
+  get: (resourceId: string) => GetCreditorSuccessResponse;
 }
 
 export {

@@ -43,13 +43,21 @@ abstract class GocardlessResource {
     });
   }
 
+  public wrapParams(params?: Params<any> | any): string {
+    return JSON.stringify({
+      [this.resourceName]: "params" in params ? params.params : params,
+    });
+  }
+
+  public buildQuery(params?: Params<any> | any): string {
+    return querystring.stringify("params" in params ? params.params : params);
+  }
+
   protected post(path: string, params?: Params<any> | any): any {
     let requestBody: string = "";
 
     if (params) {
-      requestBody = JSON.stringify({
-        [this.resourceName]: "params" in params ? params.params : params,
-      });
+      requestBody = this.wrapParams(params);
     }
 
     const { auth, host, version } = this.client;
@@ -79,9 +87,7 @@ abstract class GocardlessResource {
     let requestBody: string = "";
 
     if (params) {
-      requestBody = JSON.stringify({
-        [this.resourceName]: "params" in params ? params.params : params,
-      });
+      requestBody = this.wrapParams(params);
     }
 
     const { auth, host, version } = this.client;
@@ -90,7 +96,7 @@ abstract class GocardlessResource {
       hostname: host,
       port: 443,
       path,
-      method: "POST",
+      method: "PUT",
       headers: {
         "Authorization": auth,
         "GoCardless-Version": version,
@@ -112,9 +118,7 @@ abstract class GocardlessResource {
     let queryParams = "";
 
     if (params) {
-      queryParams = querystring.stringify(
-        "params" in params ? params.params : params,
-      );
+      queryParams = this.buildQuery(params);
       path += `?${queryParams}`;
     }
 
