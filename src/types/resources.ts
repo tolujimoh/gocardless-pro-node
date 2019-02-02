@@ -44,35 +44,4 @@ interface Params<T> {
   params: T;
 }
 
-interface CreditorBankAccount {}
-interface CustomerBankAccounts {}
-interface CustomerNotifications {}
-interface Customers {}
-interface Events {}
-interface MandateImportEntries {}
-interface MandateImports {}
-interface Mandates {}
-interface Payments {}
-interface PayoutItems {}
-interface Payouts {}
-interface Refunds {}
-interface Subscriptions {}
-
-export {
-  CursorOptions,
-  CursorResponse,
-  Params,
-  CreditorBankAccount,
-  CustomerBankAccounts,
-  CustomerNotifications,
-  Customers,
-  Events,
-  MandateImportEntries,
-  MandateImports,
-  Mandates,
-  Payments,
-  PayoutItems,
-  Payouts,
-  Refunds,
-  Subscriptions,
-};
+export { CursorOptions, CursorResponse, Params };

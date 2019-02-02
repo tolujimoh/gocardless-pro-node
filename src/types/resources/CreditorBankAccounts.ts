@@ -111,19 +111,19 @@ interface CreditorBankAccountsResponse {
   };
 }
 
-interface CreateCreditorSuccessResponse {
+interface CreateCreditorBankAccountsSuccessResponse {
   creditor_bank_accounts: CreditorBankAccountsResponse;
 }
 
-interface GetCreditorSuccessResponse {
+interface GetCreditorBankAccountsSuccessResponse {
   creditor_bank_accounts: CreditorBankAccountsResponse;
 }
 
-interface DeleteCreditorSuccessResponse {
+interface DisableCreditorBankAccountsSuccessResponse {
   creditor_bank_accounts: CreditorBankAccountsResponse;
 }
 
-interface ListCreditorSuccessResponse extends CursorResponse {
+interface ListCreditorBankAccountsSuccessResponse extends CursorResponse {
   creditor_bank_accounts: CreditorBankAccountsResponse[];
 }
 
@@ -131,21 +131,21 @@ interface CreditorBankAccounts {
   create: (
     params: CreateCreditorBankAccountsRequest &
       Params<CreateCreditorBankAccountsRequest>,
-  ) => CreateCreditorSuccessResponse;
+  ) => CreateCreditorBankAccountsSuccessResponse;
   list: (
     params: ListCreditorBankAccountsRequest &
       Params<ListCreditorBankAccountsRequest>,
-  ) => ListCreditorSuccessResponse;
-  delete: (resourceId: string) => DeleteCreditorSuccessResponse;
-  get: (resourceId: string) => GetCreditorSuccessResponse;
+  ) => ListCreditorBankAccountsSuccessResponse;
+  disable: (resourceId: string) => DisableCreditorBankAccountsSuccessResponse;
+  get: (resourceId: string) => GetCreditorBankAccountsSuccessResponse;
 }
 
 export {
   CreateCreditorBankAccountsRequest,
   ListCreditorBankAccountsRequest,
-  CreateCreditorSuccessResponse,
-  GetCreditorSuccessResponse,
-  DeleteCreditorSuccessResponse,
-  ListCreditorSuccessResponse,
+  CreateCreditorBankAccountsSuccessResponse,
+  GetCreditorBankAccountsSuccessResponse,
+  DisableCreditorBankAccountsSuccessResponse,
+  ListCreditorBankAccountsSuccessResponse,
   CreditorBankAccounts,
 };

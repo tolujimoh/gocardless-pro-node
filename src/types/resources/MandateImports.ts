@@ -1,12 +1,12 @@
 import { CursorOptions, CursorResponse, Params } from "../resources";
 
-interface CreateManadateImportsRequest {
+interface CreateMandateImportsRequest {
   /**
    *   A Direct Debit scheme. Currently “autogiro”, “bacs”, “becs”, “becs_nz”, “betalingsservice”, “pad” and “sepa_core” are supported.   */
   scheme: string;
 }
 
-interface ManadateImportsResponse {
+interface MandateImportsResponse {
   /**
    * Unique identifier, beginning with “IM”.
    */
@@ -38,36 +38,36 @@ When the mandates have all been imported successfully, the status will report as
   status: string;
 }
 
-interface CreateManadateImportsSuccessResponse {
-  manadate_imports: ManadateImportsResponse;
+interface CreateMandateImportsSuccessResponse {
+  mandate_imports: MandateImportsResponse;
 }
 
-interface GetManadateImportsSuccessResponse {
-  manadate_imports: ManadateImportsResponse;
+interface GetMandateImportsSuccessResponse {
+  mandate_imports: MandateImportsResponse;
 }
 
-interface CancelManadateImportsSuccessResponse {
-  manadate_imports: ManadateImportsResponse;
+interface CancelMandateImportsSuccessResponse {
+  mandate_imports: MandateImportsResponse;
 }
 
-interface SubmitManadateImportsSuccessResponse {
-  manadate_imports: ManadateImportsResponse;
+interface SubmitMandateImportsSuccessResponse {
+  mandate_imports: MandateImportsResponse;
 }
 
-interface ManadateImports {
+interface MandateImports {
   create: (
-    params: CreateManadateImportsRequest & Params<CreateManadateImportsRequest>,
-  ) => CreateManadateImportsSuccessResponse;
-  get: (resourceId: string) => GetManadateImportsSuccessResponse;
-  cancel: (resourceId: string) => CancelManadateImportsSuccessResponse;
-  submit: (resourceId: string) => SubmitManadateImportsSuccessResponse;
+    params: CreateMandateImportsRequest & Params<CreateMandateImportsRequest>,
+  ) => CreateMandateImportsSuccessResponse;
+  get: (resourceId: string) => GetMandateImportsSuccessResponse;
+  cancel: (resourceId: string) => CancelMandateImportsSuccessResponse;
+  submit: (resourceId: string) => SubmitMandateImportsSuccessResponse;
 }
 
 export {
-  CreateManadateImportsRequest,
-  CreateManadateImportsSuccessResponse,
-  GetManadateImportsSuccessResponse,
-  SubmitManadateImportsSuccessResponse,
-  CancelManadateImportsSuccessResponse,
-  ManadateImports,
+  CreateMandateImportsRequest,
+  CreateMandateImportsSuccessResponse,
+  GetMandateImportsSuccessResponse,
+  SubmitMandateImportsSuccessResponse,
+  CancelMandateImportsSuccessResponse,
+  MandateImports,
 };

@@ -1,6 +1,6 @@
 import { CursorOptions, CursorResponse, Params } from "../resources";
 
-interface CreateManadatesRequest {
+interface CreateMandatesRequest {
   /**
    * Key-value store of custom data. Up to 3 keys are permitted, with key names up to 50 characters and values up to 500 characters.
    */
@@ -30,7 +30,7 @@ interface CreateManadatesRequest {
   };
 }
 
-interface ListManadatesRequest extends CursorOptions {
+interface ListMandatesRequest extends CursorOptions {
   /** ID of a creditor. If specified, this endpoint will return all mandates for the given creditor. Cannot be used in conjunction with customer or customer_bank_account
 
    */
@@ -55,7 +55,7 @@ interface ListManadatesRequest extends CursorOptions {
   status?: string;
 }
 
-interface ManadatesResponse {
+interface MandatesResponse {
   /**
    * Unique identifier, beginning with “MD”.
    */
@@ -138,84 +138,84 @@ expired: the mandate has expired due to dormancy
   };
 }
 
-interface UpdateManadatesRequest {
+interface UpdateMandatesRequest {
   /**
    Key-value store of custom data. Up to 3 keys are permitted, with key names up to 50 characters and values up to 500 characters.
    */
   metadata?: Object;
 }
 
-interface CancelManadatesRequest {
+interface CancelMandatesRequest {
   /**
    Key-value store of custom data. Up to 3 keys are permitted, with key names up to 50 characters and values up to 500 characters.
    */
   metadata?: Object;
 }
 
-interface ReinstateManadatesRequest {
+interface ReinstateMandatesRequest {
   /**
    Key-value store of custom data. Up to 3 keys are permitted, with key names up to 50 characters and values up to 500 characters.
    */
   metadata?: Object;
 }
 
-interface CreateManadatesSuccessResponse {
-  manadates: ManadatesResponse;
+interface CreateMandatesSuccessResponse {
+  mandates: MandatesResponse;
 }
 
-interface GetManadatesSuccessResponse {
-  manadates: ManadatesResponse;
+interface GetMandatesSuccessResponse {
+  mandates: MandatesResponse;
 }
 
-interface CancelManadatesSuccessResponse {
-  manadates: ManadatesResponse;
+interface CancelMandatesSuccessResponse {
+  mandates: MandatesResponse;
 }
 
-interface ReinstateManadatesSuccessResponse {
-  manadates: ManadatesResponse;
+interface ReinstateMandatesSuccessResponse {
+  mandates: MandatesResponse;
 }
 
-interface ListManadatesSuccessResponse extends CursorResponse {
-  manadates: ManadatesResponse[];
+interface ListMandatesSuccessResponse extends CursorResponse {
+  mandates: MandatesResponse[];
 }
 
-interface UpdateManadatesSuccessResponse {
-  manadates: ManadatesResponse;
+interface UpdateMandatesSuccessResponse {
+  mandates: MandatesResponse;
 }
 
-interface Manadates {
+interface Mandates {
   create: (
-    params: CreateManadatesRequest & Params<CreateManadatesRequest>,
-  ) => CreateManadatesSuccessResponse;
+    params: CreateMandatesRequest & Params<CreateMandatesRequest>,
+  ) => CreateMandatesSuccessResponse;
   list: (
-    params: ListManadatesRequest & Params<ListManadatesRequest>,
-  ) => ListManadatesSuccessResponse;
+    params: ListMandatesRequest & Params<ListMandatesRequest>,
+  ) => ListMandatesSuccessResponse;
   cancel: (
     resourceId: string,
-    params: CancelManadatesRequest & Params<CancelManadatesRequest>,
-  ) => CancelManadatesSuccessResponse;
+    params: CancelMandatesRequest & Params<CancelMandatesRequest>,
+  ) => CancelMandatesSuccessResponse;
   reinstate: (
     resourceId: string,
-    params: ReinstateManadatesRequest & Params<ReinstateManadatesRequest>,
-  ) => ReinstateManadatesSuccessResponse;
+    params: ReinstateMandatesRequest & Params<ReinstateMandatesRequest>,
+  ) => ReinstateMandatesSuccessResponse;
   update: (
     resourceId: string,
-    params: UpdateManadatesRequest & Params<UpdateManadatesRequest>,
-  ) => UpdateManadatesSuccessResponse;
-  get: (resourceId: string) => GetManadatesSuccessResponse;
+    params: UpdateMandatesRequest & Params<UpdateMandatesRequest>,
+  ) => UpdateMandatesSuccessResponse;
+  get: (resourceId: string) => GetMandatesSuccessResponse;
 }
 
 export {
-  CreateManadatesRequest,
-  ListManadatesRequest,
-  UpdateManadatesRequest,
-  CancelManadatesRequest,
-  ReinstateManadatesRequest,
-  ReinstateManadatesSuccessResponse,
-  UpdateManadatesSuccessResponse,
-  CreateManadatesSuccessResponse,
-  GetManadatesSuccessResponse,
-  CancelManadatesSuccessResponse,
-  ListManadatesSuccessResponse,
-  Manadates,
+  CreateMandatesRequest,
+  ListMandatesRequest,
+  UpdateMandatesRequest,
+  CancelMandatesRequest,
+  ReinstateMandatesRequest,
+  ReinstateMandatesSuccessResponse,
+  UpdateMandatesSuccessResponse,
+  CreateMandatesSuccessResponse,
+  GetMandatesSuccessResponse,
+  CancelMandatesSuccessResponse,
+  ListMandatesSuccessResponse,
+  Mandates,
 };

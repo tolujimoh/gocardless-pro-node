@@ -125,7 +125,7 @@ interface GetCustomerBankAccountsSuccessResponse {
   customer_bank_accounts: CustomerBankAccountsResponse;
 }
 
-interface DeleteCustomerBankAccountsSuccessResponse {
+interface DisableCustomerBankAccountsSuccessResponse {
   customer_bank_accounts: CustomerBankAccountsResponse;
 }
 
@@ -146,7 +146,7 @@ interface CustomerBankAccounts {
     params: ListCustomerBankAccountsRequest &
       Params<ListCustomerBankAccountsRequest>,
   ) => ListCustomerBankAccountsSuccessResponse;
-  delete: (resourceId: string) => DeleteCustomerBankAccountsSuccessResponse;
+  disable: (resourceId: string) => DisableCustomerBankAccountsSuccessResponse;
   update: (
     resourceId: string,
     params: UpdateCustomerBankAccountsRequest &
@@ -162,7 +162,7 @@ export {
   UpdateCustomerBankAccountsSuccessResponse,
   CreateCustomerBankAccountsSuccessResponse,
   GetCustomerBankAccountsSuccessResponse,
-  DeleteCustomerBankAccountsSuccessResponse,
+  DisableCustomerBankAccountsSuccessResponse,
   ListCustomerBankAccountsSuccessResponse,
   CustomerBankAccounts,
 };
