@@ -27,7 +27,7 @@ class RedirectFlowsResource extends GocardlessResource
     resourceId: string,
     params: CompleteRedirectFlowsRequest | Params<CompleteRedirectFlowsRequest>,
   ): CompleteRedirectFlowsSuccessResponse {
-    return super.get(
+    return super.post(
       `/${this.resourceName}/${resourceId}/actions/complete`,
       params,
     );
