@@ -52,7 +52,7 @@ class MandatesResource extends GocardlessResource implements Mandates {
     return super.put(`/${this.resourceName}/${resourceId}`, params);
   }
   public get(resourceId: string): GetMandatesSuccessResponse {
-    return super.post(`/${this.resourceName}/${resourceId}`);
+    return super.get(`/${this.resourceName}/${resourceId}`);
   }
 }
 

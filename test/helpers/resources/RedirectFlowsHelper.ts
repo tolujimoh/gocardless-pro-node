@@ -1,194 +1,66 @@
-export const CREATE_CREDITORS_CORRECT_REQUEST = {
-  params: {
-    name: "The Cheese Club",
-    address_line1: "123 Street",
-    city: "London",
-    postal_code: "E2 8DP",
-    country_code: "GB",
-  },
-};
-
-export const CREATE_CREDITORS_SUCCESS_RESPONSE = {
-  creditors: {
-    id: "CR123",
-    created_at: "2017-02-16T12:34:56.000Z",
-    name: "The Cheese Club",
-    address_line1: "123 Street",
-    address_line2: null,
-    address_line3: null,
-    city: "London",
-    region: null,
-    postal_code: "E2 8DP",
-    country_code: "GB",
-    logo_url: null,
-    verification_status: "action_required",
-    can_create_refunds: false,
-    scheme_identifiers: [
-      {
-        name: "GoCardless",
-        scheme: "bacs",
-        reference: "420042",
-        minimum_advance_notice: 3,
-        currency: "GBP",
-        address_line1: "338 Goswell Road",
-        address_line2: null,
-        address_line3: null,
-        city: "London",
-        region: null,
-        postal_code: "EC1V 7LQ",
-        country_code: "GB",
-        email: "help@gocardless.com",
-        phone_number: "+44 20 7183 8674",
-        can_specify_mandate_reference: false,
-      },
-    ],
-    links: {},
-  },
-};
-
-export const LIST_CREDITORS_SUCCESS_RESPONSE = {
-  meta: {
-    cursors: {
-      before: null,
-      after: "CR123",
+export const CREATE_REDIRECT_FLOWS_CORRECT_REQUEST = {
+  redirect_flows: {
+    description: "Wine boxes",
+    session_token: "SESS_wSs0uGYMISxzqOBq",
+    success_redirect_url: "https://example.com/pay/confirm",
+    prefilled_customer: {
+      given_name: "Frank",
+      family_name: "Osborne",
+      email: "frank.osborne@acmeplc.com",
     },
-    limit: 50,
   },
-  creditors: [
-    {
-      id: "CR123",
-      created_at: "2017-02-16T12:34:56.000Z",
-      name: "The Cheese Club",
-      address_line1: "123 Street",
-      address_line2: null,
-      address_line3: null,
-      city: "London",
-      region: null,
-      postal_code: "E2 8DP",
-      country_code: "GB",
-      logo_url: null,
-      verification_status: "successful",
-      can_create_refunds: false,
-      scheme_identifiers: [
-        {
-          name: "GoCardless",
-          scheme: "bacs",
-          reference: "420042",
-          minimum_advance_notice: 3,
-          currency: "GBP",
-          address_line1: "338 Goswell Road",
-          address_line2: null,
-          address_line3: null,
-          city: "London",
-          region: null,
-          postal_code: "EC1V 7LQ",
-          country_code: "GB",
-          email: "help@gocardless.com",
-          phone_number: "+44 20 7183 8674",
-          can_specify_mandate_reference: false,
-        },
-      ],
-      links: {
-        default_gbp_payout_account: "BA123",
-        default_eur_payout_account: "BA456",
-      },
-    },
-  ],
 };
 
-export const GET_CREDITORS_SUCCESS_RESPONSE = {
-  creditors: {
-    id: "CR123",
-    created_at: "2017-02-16T12:34:56.000Z",
-    name: "The Cheese Club",
-    address_line1: "123 Street",
-    address_line2: null,
-    address_line3: null,
-    city: "London",
-    region: null,
-    postal_code: "E2 8DP",
-    country_code: "GB",
-    logo_url: null,
-    verification_status: "successful",
-    can_create_refunds: false,
-    scheme_identifiers: [
-      {
-        name: "GoCardless",
-        scheme: "bacs",
-        reference: "420042",
-        minimum_advance_notice: 3,
-        currency: "GBP",
-        address_line1: "338 Goswell Road",
-        address_line2: null,
-        address_line3: null,
-        city: "London",
-        region: null,
-        postal_code: "EC1V 7LQ",
-        country_code: "GB",
-        email: "help@gocardless.com",
-        phone_number: "+44 20 7183 8674",
-        can_specify_mandate_reference: false,
-      },
-    ],
+export const CREATE_REDIRECT_FLOWS_SUCCESS_RESPONSE = {
+  redirect_flows: {
+    id: "RE123",
+    description: "Wine boxes",
+    session_token: "SESS_wSs0uGYMISxzqOBq",
+    scheme: null,
+    success_redirect_url: "https://example.com/pay/confirm",
+    redirect_url: "http://pay.gocardless.com/flow/RE123",
+    created_at: "2014-10-22T13:10:06.000Z",
     links: {
-      default_gbp_payout_account: "BA123",
-      default_eur_payout_account: "BA456",
+      creditor: "CR123",
     },
   },
 };
 
-export const UPDATE_CREDITORS_SUCCESS_RESPONSE = {
-  creditors: {
-    id: "CR123",
-    created_at: "2017-02-16T12:34:56.000Z",
-    name: "The Wine Club",
-    address_line1: "123 Street",
-    address_line2: null,
-    address_line3: null,
-    city: "London",
-    region: null,
-    postal_code: "E2 8DP",
-    country_code: "GB",
-    logo_url: null,
-    verification_status: "successful",
-    can_create_refunds: false,
-    scheme_identifiers: [
-      {
-        name: "GoCardless",
-        scheme: "bacs",
-        reference: "420042",
-        minimum_advance_notice: 3,
-        currency: "GBP",
-        address_line1: "338 Goswell Road",
-        address_line2: null,
-        address_line3: null,
-        city: "London",
-        region: null,
-        postal_code: "EC1V 7LQ",
-        country_code: "GB",
-        email: "help@gocardless.com",
-        phone_number: "+44 20 7183 8674",
-        can_specify_mandate_reference: false,
-      },
-    ],
+export const GET_REDIRECT_FLOWS_SUCCESS_RESPONSE = {
+  redirect_flows: {
+    id: "RE123",
+    description: "Wine boxes",
+    session_token: "SESS_wSs0uGYMISxzqOBq",
+    scheme: null,
+    success_redirect_url: "https://example.com/pay/confirm",
+    redirect_url: "http://pay.gocardless.com/flow/RE123",
+    created_at: "2014-10-22T13:10:06.000Z",
     links: {
-      default_gbp_payout_account: "BA789",
-      default_eur_payout_account: "BA456",
+      creditor: "CR123",
     },
   },
 };
 
-export const LIST_CREDITORS_CORRECT_REQUEST = {
-  params: {
-    limit: 2,
-  },
-};
-
-export const UPDATE_CREDITORS_CORRECT_REQUEST = {
-  params: {
-    name: "Nude Wines",
+export const COMPLETE_REDIRECT_FLOWS_SUCCESS_RESPONSE = {
+  redirect_flows: {
+    id: "RE123",
+    description: "Wine boxes",
+    session_token: "SESS_wSs0uGYMISxzqOBq",
+    scheme: null,
+    success_redirect_url: "https://example.com/pay/confirm",
+    confirmation_url: "https://pay.gocardless.com/flow/RE123/success",
+    created_at: "2014-10-22T13:10:06.000Z",
     links: {
-      default_gbp_payout_account: "BA789",
+      creditor: "CR123",
+      mandate: "MD123",
+      customer: "CU123",
+      customer_bank_account: "BA123",
     },
+  },
+};
+
+export const COMPLETE_REDIRECT_FLOWS_CORRECT_REQUEST = {
+  data: {
+    session_token: "SESS_wSs0uGYMISxzqOBq",
   },
 };

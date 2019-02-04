@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import gocardless from "../src/goCardless";
-import CreditorBankAccountResource from "../src/resources/CreditorBankAccountResource";
+import CreditorBankAccountsResource from "../src/resources/CreditorBankAccountsResource";
 import CreditorsResource from "../src/resources/CreditorsResource";
 import CustomerBankAccountsResource from "../src/resources/CustomerBankAccountsResource";
 import CustomerNotificationsResource from "../src/resources/CustomerNotificationsResource";
@@ -189,10 +189,10 @@ describe("Client", () => {
         access_token: SANDBOX_ACCESS_TOKEN,
       });
     });
-    it("creditor_bank_account is loaded", () => {
-      expect(client).to.have.property("creditor_bank_account");
-      expect(client.creditor_bank_account).to.be.instanceof(
-        CreditorBankAccountResource,
+    it("creditor_bank_accounts is loaded", () => {
+      expect(client).to.have.property("creditor_bank_accounts");
+      expect(client.creditor_bank_accounts).to.be.instanceof(
+        CreditorBankAccountsResource,
       );
     });
     it("creditors is loaded", () => {

@@ -22,16 +22,7 @@ export const GET_MANDATE_IMPORTS_SUCCESS_RESPONSE = {
   },
 };
 
-export const UPDATE_MANDATE_IMPORTS_SUCCESS_RESPONSE = {
-  mandate_imports: {
-    id: "IM000010790WX1",
-    scheme: "bacs",
-    status: "processing",
-    created_at: "2018-03-12T14:03:04.000Z",
-  },
-};
-
-export const UPDATE_MANDATE_IMPORTS_CORRECT_REQUEST = {
+export const SUBMIT_MANDATE_IMPORTS_SUCCESS_RESPONSE = {
   mandate_imports: {
     id: "IM000010790WX1",
     scheme: "bacs",

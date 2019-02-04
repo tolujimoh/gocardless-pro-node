@@ -10,9 +10,9 @@ import {
   ListCreditorBankAccountsSuccessResponse,
 } from "../types/resources/CreditorBankAccounts";
 
-class CreditorBankAccountResource extends GocardlessResource
+class CreditorBankAccountsResource extends GocardlessResource
   implements CreditorBankAccounts {
-  public resourceName: string = "creditor_bank_account";
+  public resourceName: string = "creditor_bank_accounts";
 
   public create(
     params:
@@ -38,4 +38,4 @@ class CreditorBankAccountResource extends GocardlessResource
   }
 }
 
-export default CreditorBankAccountResource;
+export default CreditorBankAccountsResource;

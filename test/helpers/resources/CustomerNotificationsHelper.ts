@@ -1,4 +1,4 @@
-export const HANDLE_CUSTOMER_NOTIFICATION_SUCCESS_RESPONSE = {
+export const HANDLE_CUSTOMER_NOTIFICATIONS_SUCCESS_RESPONSE = {
   customer_notifications: {
     id: "PCN123",
     type: "payment_created",

@@ -1,21 +1,18 @@
-import {
-  CreditorBankAccount,
-  CustomerBankAccounts,
-  CustomerNotifications,
-  Customers,
-  Events,
-  MandateImportEntries,
-  MandateImports,
-  Mandates,
-  Payments,
-  PayoutItems,
-  Payouts,
-  Refunds,
-  Subscriptions,
-} from "./resources";
-
+import { CreditorBankAccounts } from "./resources/CreditorBankAccounts";
 import { Creditors } from "./resources/Creditors";
+import { CustomerBankAccounts } from "./resources/CustomerBankAccounts";
+import { CustomerNotifications } from "./resources/CustomerNotifications";
+import { Customers } from "./resources/Customers";
+import { Events } from "./resources/Events";
+import { MandateImportEntries } from "./resources/MandateImportEntries";
+import { MandateImports } from "./resources/MandateImports";
+import { Mandates } from "./resources/Mandates";
+import { Payments } from "./resources/Payments";
+import { PayoutItems } from "./resources/PayoutItems";
+import { Payouts } from "./resources/Payouts";
 import { RedirectFlows } from "./resources/RedirectFlows";
+import { Refunds } from "./resources/Refunds";
+import { Subscriptions } from "./resources/Subscriptions";
 
 type Environment = "live" | "sandbox";
 
@@ -38,7 +35,7 @@ interface ClientAPI {
 }
 
 interface ClientInteface {
-  creditor_bank_account: CreditorBankAccount;
+  creditor_bank_accounts: CreditorBankAccounts;
   creditors: Creditors;
   customer_bank_accounts: CustomerBankAccounts;
   customer_notifications: CustomerNotifications;

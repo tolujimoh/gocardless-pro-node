@@ -5,11 +5,11 @@ import {
   CreateMandateImportEntriesSuccessResponse,
   ListMandateImportEntriesRequest,
   ListMandateImportEntriesSuccessResponse,
-  MandateImportEntriess,
+  MandateImportEntries,
 } from "../types/resources/MandateImportEntries";
 
 class MandateImportEntriesResource extends GocardlessResource
-  implements MandateImportEntriess {
+  implements MandateImportEntries {
   public resourceName: string = "mandate_import_entries";
 
   public create(

@@ -1,4 +1,4 @@
-import CreditorBankAccountResource from "./resources/CreditorBankAccountResource";
+import CreditorBankAccountsResource from "./resources/CreditorBankAccountsResource";
 import CreditorsResource from "./resources/CreditorsResource";
 import CustomerBankAccountsResource from "./resources/CustomerBankAccountsResource";
 import CustomerNotificationsResource from "./resources/CustomerNotificationsResource";
@@ -20,24 +20,22 @@ import {
   ClientInteface,
   Environment,
 } from "./types/client";
-import {
-  CreditorBankAccount,
-  CustomerBankAccounts,
-  CustomerNotifications,
-  Customers,
-  Events,
-  MandateImportEntries,
-  MandateImports,
-  Mandates,
-  Payments,
-  PayoutItems,
-  Payouts,
-  Refunds,
-  Subscriptions,
-} from "./types/resources";
 
+import { CreditorBankAccounts } from "./types/resources/CreditorBankAccounts";
 import { Creditors } from "./types/resources/Creditors";
+import { CustomerBankAccounts } from "./types/resources/CustomerBankAccounts";
+import { CustomerNotifications } from "./types/resources/CustomerNotifications";
+import { Customers } from "./types/resources/Customers";
+import { Events } from "./types/resources/Events";
+import { MandateImportEntries } from "./types/resources/MandateImportEntries";
+import { MandateImports } from "./types/resources/MandateImports";
+import { Mandates } from "./types/resources/Mandates";
+import { Payments } from "./types/resources/Payments";
+import { PayoutItems } from "./types/resources/PayoutItems";
+import { Payouts } from "./types/resources/Payouts";
 import { RedirectFlows } from "./types/resources/RedirectFlows";
+import { Refunds } from "./types/resources/Refunds";
+import { Subscriptions } from "./types/resources/Subscriptions";
 
 import {
   GOCARDLESS_API_DEFAULT_TIMEOUT,
@@ -96,7 +94,7 @@ class Client implements ClientInteface {
     // environment === "sandbox"
     return SANDBOX_ENIVIRONMENT_URL;
   }
-  public creditor_bank_account: CreditorBankAccount;
+  public creditor_bank_accounts: CreditorBankAccounts;
   public creditors: Creditors;
   public customer_bank_accounts: CustomerBankAccounts;
   public customer_notifications: CustomerNotifications;
@@ -137,7 +135,7 @@ class Client implements ClientInteface {
 
     this.auth = access_token;
 
-    this.creditor_bank_account = new CreditorBankAccountResource(this);
+    this.creditor_bank_accounts = new CreditorBankAccountsResource(this);
     this.creditors = new CreditorsResource(this);
     this.customer_bank_accounts = new CustomerBankAccountsResource(this);
     this.customer_notifications = new CustomerNotificationsResource(this);

@@ -154,7 +154,7 @@ interface ListMandateImportEntriesSuccessResponse extends CursorResponse {
   creditors: MandateImportEntriessResponse[];
 }
 
-interface MandateImportEntriess {
+interface MandateImportEntries {
   create: (
     params: CreateMandateImportEntriesRequest &
       Params<CreateMandateImportEntriesRequest>,
@@ -170,5 +170,5 @@ export {
   CreateMandateImportEntriesSuccessResponse,
   ListMandateImportEntriesRequest,
   ListMandateImportEntriesSuccessResponse,
-  MandateImportEntriess,
+  MandateImportEntries,
 };
