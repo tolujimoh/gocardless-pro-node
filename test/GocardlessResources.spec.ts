@@ -5,12 +5,10 @@ import querystring from "querystring";
 import sinon, { SinonSpy } from "sinon";
 import { PassThrough } from "stream";
 import url from "url";
+import * as gocardless from "../src";
 import Client from "../src/Client";
-import gocardless from "../src/gocardless";
 import GocardlessResource from "../src/GocardlessResource";
 import { Params } from "../src/types/resources";
-
-const SANDBOX_ACCESS_TOKEN = "sandbox_2hcd-Pd2U1jtAmOtusu51WIgTu8IHJ96qlFD1wSh";
 
 chai.use(chaiAsPromised);
 
@@ -24,7 +22,7 @@ describe("GocardlessResources", () => {
   beforeEach(() => {
     httpsStub = sinon.stub(https, "request");
     client = new gocardless.Client({
-      access_token: SANDBOX_ACCESS_TOKEN,
+      access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
       environment: "sandbox",
     });
 

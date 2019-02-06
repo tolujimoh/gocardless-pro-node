@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import gocardless from "../src/goCardless";
+import * as gocardless from "../src";
 import CreditorBankAccountsResource from "../src/resources/CreditorBankAccountsResource";
 import CreditorsResource from "../src/resources/CreditorsResource";
 import CustomerBankAccountsResource from "../src/resources/CustomerBankAccountsResource";
@@ -19,8 +19,6 @@ import {
   LIVE_ENIVIRONMENT_URL,
   SANDBOX_ENIVIRONMENT_URL,
 } from "./../src/Constants";
-
-const SANDBOX_ACCESS_TOKEN = "sandbox_2hcd-Pd2U1jtAmOtusu51WIgTu8IHJ96qlFD1wSh";
 
 describe("Client", () => {
   describe("config", () => {
@@ -59,16 +57,19 @@ describe("Client", () => {
 
       it("check auth is set", () => {
         client = new gocardless.Client({
-          access_token: SANDBOX_ACCESS_TOKEN,
+          access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
           environment: "sandbox",
         });
-        expect(client.auth).to.be.equal(`Bearer ${SANDBOX_ACCESS_TOKEN}`);
+
+        expect(client.auth).to.be.equal(
+          `Bearer ${process.env.SANDBOX_ACCESS_TOKEN || ""}`,
+        );
       });
 
       describe("when environment is live", () => {
         before(() => {
           client = new gocardless.Client({
-            access_token: SANDBOX_ACCESS_TOKEN,
+            access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
             environment: "live",
           });
         });
@@ -85,7 +86,7 @@ describe("Client", () => {
       describe("when environment is sandbox", () => {
         before(() => {
           client = new gocardless.Client({
-            access_token: SANDBOX_ACCESS_TOKEN,
+            access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
             environment: "sandbox",
           });
         });
@@ -102,7 +103,7 @@ describe("Client", () => {
         const base_url: string = "https://localhost/gocardless";
         before(() => {
           client = new gocardless.Client({
-            access_token: SANDBOX_ACCESS_TOKEN,
+            access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
             base_url,
           });
         });
@@ -135,7 +136,7 @@ describe("Client", () => {
     let client: any;
     before(() => {
       client = new gocardless.Client({
-        access_token: SANDBOX_ACCESS_TOKEN,
+        access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
         environment: "sandbox",
       });
     });
@@ -166,8 +167,10 @@ describe("Client", () => {
 
     describe("auth", () => {
       it("check setter / getter", () => {
-        client.auth = SANDBOX_ACCESS_TOKEN;
-        expect(client.auth).to.be.equal(`Bearer ${SANDBOX_ACCESS_TOKEN}`);
+        client.auth = process.env.SANDBOX_ACCESS_TOKEN || "";
+        expect(client.auth).to.be.equal(
+          `Bearer ${process.env.SANDBOX_ACCESS_TOKEN || ""}`,
+        );
       });
     });
 
@@ -186,7 +189,7 @@ describe("Client", () => {
     before(() => {
       client = new gocardless.Client({
         environment: "sandbox",
-        access_token: SANDBOX_ACCESS_TOKEN,
+        access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
       });
     });
     it("creditor_bank_accounts is loaded", () => {

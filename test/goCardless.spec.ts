@@ -1,6 +1,6 @@
 import { expect } from "chai";
+import * as gocardless from "../src";
 import Client from "../src/Client";
-import gocardless from "../src/gocardless";
 
 describe("goCardless", () => {
   it("module exports an object", () => {

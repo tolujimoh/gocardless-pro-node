@@ -2,7 +2,7 @@ import { expect } from "chai";
 import https from "https";
 import sinon from "sinon";
 import { PassThrough } from "stream";
-import gocardless from "../../lib/gocardless";
+import * as gocardless from "../../src";
 
 import {
   CANCEL_PAYMENTS_CORRECT_REQUEST,
@@ -18,15 +18,13 @@ import {
   UPDATE_PAYMENTS_SUCCESS_RESPONSE,
 } from "../helpers/resources/PaymentsHelper";
 
-const SANDBOX_ACCESS_TOKEN = "sandbox_2hcd-Pd2U1jtAmOtusu51WIgTu8IHJ96qlFD1wSh";
-
 describe("PaymentsResource", () => {
   let client: any;
   let httpsStub: any;
   beforeEach(() => {
     httpsStub = sinon.stub(https, "request");
     client = new gocardless.Client({
-      access_token: SANDBOX_ACCESS_TOKEN,
+      access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
       environment: "sandbox",
     });
   });

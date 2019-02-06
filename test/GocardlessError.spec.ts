@@ -3,8 +3,8 @@ import https from "https";
 import sinon from "sinon";
 import { PassThrough } from "stream";
 
+import * as gocardless from "../src";
 import Client from "../src/Client";
-import gocardless from "../src/gocardless";
 import GocardlessError from "../src/GocardlessError";
 
 import {
@@ -16,15 +16,13 @@ import {
   HTTP_422_RESPONSE,
 } from "./helpers/errorsHelper";
 
-const SANDBOX_ACCESS_TOKEN = "sandbox_2hcd-Pd2U1jtAmOtusu51WIgTu8IHJ96qlFD1wSh";
-
 describe("GocardlessError", () => {
   let client: Client;
   let httpStub: any;
 
   before(() => {
     client = new gocardless.Client({
-      access_token: SANDBOX_ACCESS_TOKEN,
+      access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
       environment: "sandbox",
     });
 

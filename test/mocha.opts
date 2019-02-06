@@ -1,5 +1,6 @@
 --compilers ts-node/register
 --require source-map-support/register
+--require dotenv/config
 --full-trace
 --bail
 test/**/*.spec.ts
