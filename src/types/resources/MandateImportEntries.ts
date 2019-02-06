@@ -156,11 +156,11 @@ interface ListMandateImportEntriesSuccessResponse extends CursorResponse {
 
 interface MandateImportEntries {
   create: (
-    params: CreateMandateImportEntriesRequest &
+    params: CreateMandateImportEntriesRequest  | 
       Params<CreateMandateImportEntriesRequest>,
   ) => CreateMandateImportEntriesSuccessResponse;
   list: (
-    params: ListMandateImportEntriesRequest &
+    params: ListMandateImportEntriesRequest  | 
       Params<ListMandateImportEntriesRequest>,
   ) => ListMandateImportEntriesSuccessResponse;
 }

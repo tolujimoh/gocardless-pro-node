@@ -49,7 +49,7 @@ interface ListPayoutItemsSuccessResponse extends CursorResponse {
 
 interface PayoutItems {
   list: (
-    params: ListPayoutItemsRequest & Params<ListPayoutItemsRequest>,
+    params: ListPayoutItemsRequest  |  Params<ListPayoutItemsRequest>,
   ) => ListPayoutItemsSuccessResponse;
 }
 

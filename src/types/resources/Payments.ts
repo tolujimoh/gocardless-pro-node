@@ -225,22 +225,22 @@ interface RetryPaymentsSuccessResponse {
 
 interface Payments {
   create: (
-    params: CreatePaymentsRequest & Params<CreatePaymentsRequest>,
+    params: CreatePaymentsRequest  |  Params<CreatePaymentsRequest>,
   ) => CreatePaymentsSuccessResponse;
   list: (
-    params: ListPaymentsRequest & Params<ListPaymentsRequest>,
+    params: ListPaymentsRequest  |  Params<ListPaymentsRequest>,
   ) => ListPaymentsSuccessResponse;
   update: (
     resourceId: string,
-    params: UpdatePaymentsRequest & Params<UpdatePaymentsRequest>,
+    params: UpdatePaymentsRequest  |  Params<UpdatePaymentsRequest>,
   ) => UpdatePaymentsSuccessResponse;
   cancel: (
     resourceId: string,
-    params: CancelPaymentsRequest & Params<CancelPaymentsRequest>,
+    params: CancelPaymentsRequest  |  Params<CancelPaymentsRequest>,
   ) => CancelPaymentsSuccessResponse;
   retry: (
     resourceId: string,
-    params: RetryPaymentsRequest & Params<RetryPaymentsRequest>,
+    params: RetryPaymentsRequest  |  Params<RetryPaymentsRequest>,
   ) => RetryPaymentsSuccessResponse;
   get: (resourceId: string) => GetPaymentsSuccessResponse;
 }

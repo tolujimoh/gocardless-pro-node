@@ -105,7 +105,7 @@ interface GetPayoutsSuccessResponse extends CursorResponse {
 
 interface Payouts {
   list: (
-    params: ListPayoutsRequest & Params<ListPayoutsRequest>,
+    params: ListPayoutsRequest  |  Params<ListPayoutsRequest>,
   ) => ListPayoutsSuccessResponse;
   get: (resourceId: string) => GetPayoutsSuccessResponse;
 }

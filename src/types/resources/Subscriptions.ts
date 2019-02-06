@@ -227,18 +227,18 @@ interface CancelSubscriptionsSuccessResponse {
 
 interface Subscriptions {
   create: (
-    params: CreateSubscriptionsRequest & Params<CreateSubscriptionsRequest>,
+    params: CreateSubscriptionsRequest  |  Params<CreateSubscriptionsRequest>,
   ) => CreateSubscriptionsSuccessResponse;
   list: (
-    params: ListSubscriptionsRequest & Params<ListSubscriptionsRequest>,
+    params: ListSubscriptionsRequest  |  Params<ListSubscriptionsRequest>,
   ) => ListSubscriptionsSuccessResponse;
   update: (
     resourceId: string,
-    params: UpdateSubscriptionsRequest & Params<UpdateSubscriptionsRequest>,
+    params: UpdateSubscriptionsRequest  |  Params<UpdateSubscriptionsRequest>,
   ) => UpdateSubscriptionsSuccessResponse;
   cancel: (
     resourceId: string,
-    params: CancelSubscriptionsRequest & Params<CancelSubscriptionsRequest>,
+    params: CancelSubscriptionsRequest  |  Params<CancelSubscriptionsRequest>,
   ) => CancelSubscriptionsSuccessResponse;
   get: (resourceId: string) => GetSubscriptionsSuccessResponse;
 }

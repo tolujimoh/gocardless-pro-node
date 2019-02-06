@@ -21,6 +21,7 @@ class CreditorBankAccountsResource extends GocardlessResource
   ): CreateCreditorBankAccountsSuccessResponse {
     return super.post(`/${this.resourceName}`, params);
   }
+
   public list(
     params:
       | ListCreditorBankAccountsRequest

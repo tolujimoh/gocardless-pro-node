@@ -139,18 +139,21 @@ interface UpdateCustomerBankAccountsSuccessResponse {
 
 interface CustomerBankAccounts {
   create: (
-    params: CreateCustomerBankAccountsRequest &
-      Params<CreateCustomerBankAccountsRequest>,
+    params:
+      | CreateCustomerBankAccountsRequest
+      | Params<CreateCustomerBankAccountsRequest>,
   ) => CreateCustomerBankAccountsSuccessResponse;
   list: (
-    params: ListCustomerBankAccountsRequest &
-      Params<ListCustomerBankAccountsRequest>,
+    params:
+      | ListCustomerBankAccountsRequest
+      | Params<ListCustomerBankAccountsRequest>,
   ) => ListCustomerBankAccountsSuccessResponse;
   disable: (resourceId: string) => DisableCustomerBankAccountsSuccessResponse;
   update: (
     resourceId: string,
-    params: UpdateCustomerBankAccountsRequest &
-      Params<UpdateCustomerBankAccountsRequest>,
+    params:
+      | UpdateCustomerBankAccountsRequest
+      | Params<UpdateCustomerBankAccountsRequest>,
   ) => UpdateCustomerBankAccountsSuccessResponse;
   get: (resourceId: string) => GetCustomerBankAccountsSuccessResponse;
 }

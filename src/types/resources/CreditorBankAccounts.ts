@@ -129,11 +129,11 @@ interface ListCreditorBankAccountsSuccessResponse extends CursorResponse {
 
 interface CreditorBankAccounts {
   create: (
-    params: CreateCreditorBankAccountsRequest &
+    params: CreateCreditorBankAccountsRequest  | 
       Params<CreateCreditorBankAccountsRequest>,
   ) => CreateCreditorBankAccountsSuccessResponse;
   list: (
-    params: ListCreditorBankAccountsRequest &
+    params: ListCreditorBankAccountsRequest  | 
       Params<ListCreditorBankAccountsRequest>,
   ) => ListCreditorBankAccountsSuccessResponse;
   disable: (resourceId: string) => DisableCreditorBankAccountsSuccessResponse;

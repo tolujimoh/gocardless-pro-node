@@ -23,6 +23,7 @@ class CustomerBankAccountsResource extends GocardlessResource
   ): CreateCustomerBankAccountsSuccessResponse {
     return super.post(`/${this.resourceName}`, params);
   }
+
   public list(
     params:
       | ListCustomerBankAccountsRequest
@@ -35,6 +36,7 @@ class CustomerBankAccountsResource extends GocardlessResource
   ): DisableCustomerBankAccountsSuccessResponse {
     return super.post(`/${this.resourceName}/${resourceId}/actions/disable`);
   }
+
   public update(
     resourceId: string,
     params:

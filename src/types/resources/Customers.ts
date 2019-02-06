@@ -274,14 +274,14 @@ interface UpdateCustomersSuccessResponse {
 
 interface Customers {
   create: (
-    params: CreateCustomersRequest & Params<CreateCustomersRequest>,
+    params: CreateCustomersRequest  |  Params<CreateCustomersRequest>,
   ) => CreateCustomersSuccessResponse;
   list: (
-    params: CursorOptions & Params<CursorOptions>,
+    params: CursorOptions  |  Params<CursorOptions>,
   ) => ListCustomersSuccessResponse;
   update: (
     resourceId: string,
-    params: UpdateCustomersRequest & Params<UpdateCustomersRequest>,
+    params: UpdateCustomersRequest  |  Params<UpdateCustomersRequest>,
   ) => UpdateCustomersSuccessResponse;
   get: (resourceId: string) => GetCustomersSuccessResponse;
 }

@@ -56,7 +56,7 @@ interface SubmitMandateImportsSuccessResponse {
 
 interface MandateImports {
   create: (
-    params: CreateMandateImportsRequest & Params<CreateMandateImportsRequest>,
+    params: CreateMandateImportsRequest  |  Params<CreateMandateImportsRequest>,
   ) => CreateMandateImportsSuccessResponse;
   get: (resourceId: string) => GetMandateImportsSuccessResponse;
   cancel: (resourceId: string) => CancelMandateImportsSuccessResponse;

@@ -239,14 +239,14 @@ interface ListCreditorSuccessResponse extends CursorResponse {
 
 interface Creditors {
   create: (
-    params: CreateCreditorRequest & Params<CreateCreditorRequest>,
+    params: CreateCreditorRequest  |  Params<CreateCreditorRequest>,
   ) => CreateCreditorSuccessResponse;
   list: (
-    params: CursorOptions & Params<CursorOptions>,
+    params: CursorOptions  |  Params<CursorOptions>,
   ) => ListCreditorSuccessResponse;
   update: (
     resourceId: string,
-    params: UpdateCreditorRequest & Params<UpdateCreditorRequest>,
+    params: UpdateCreditorRequest  |  Params<UpdateCreditorRequest>,
   ) => UpdateCreditorSuccessResponse;
   get: (resourceId: string) => GetCreditorSuccessResponse;
 }

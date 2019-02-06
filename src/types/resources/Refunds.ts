@@ -124,14 +124,14 @@ interface UpdateRefundsSuccessResponse {
 
 interface Refunds {
   create: (
-    params: CreateRefundsRequest & Params<CreateRefundsRequest>,
+    params: CreateRefundsRequest  |  Params<CreateRefundsRequest>,
   ) => CreateRefundsSuccessResponse;
   list: (
-    params: ListRefundsRequest & Params<ListRefundsRequest>,
+    params: ListRefundsRequest  |  Params<ListRefundsRequest>,
   ) => ListRefundsSuccessResponse;
   update: (
     resourceId: string,
-    params: UpdateRefundsRequest & Params<UpdateRefundsRequest>,
+    params: UpdateRefundsRequest  |  Params<UpdateRefundsRequest>,
   ) => UpdateRefundsSuccessResponse;
   get: (resourceId: string) => GetRefundsSuccessResponse;
 }

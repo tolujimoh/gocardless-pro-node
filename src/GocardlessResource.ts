@@ -4,6 +4,8 @@ import querystring from "querystring";
 import Client from "./Client";
 import { Params } from "./types/resources";
 
+import GocardlessError from "./GocardlessError";
+
 abstract class GocardlessResource {
   protected abstract resourceName: string;
 
@@ -27,7 +29,23 @@ abstract class GocardlessResource {
         });
 
         res.on("end", () => {
-          resolve(JSON.parse(resBody));
+          try {
+            const parsedResBody: Object = JSON.parse(resBody);
+
+            if ("error" in parsedResBody) {
+              reject(new GocardlessError(parsedResBody[`error`]));
+            } else {
+              resolve(parsedResBody);
+            }
+          } catch ({ message }) {
+            reject(
+              new GocardlessError({
+                message,
+                type: "internal_server_error",
+                code: 500,
+              }),
+            );
+          }
         });
       });
 
@@ -43,17 +61,17 @@ abstract class GocardlessResource {
     });
   }
 
-  public wrapParams(params?: Params<any> | any): string {
+  public wrapParams(params: Params<Object> | Object): string {
     return JSON.stringify({
       [this.resourceName]: "params" in params ? params.params : params,
     });
   }
 
-  public buildQuery(params?: Params<any> | any): string {
+  public buildQuery(params: Params<Object> | Object): string {
     return querystring.stringify("params" in params ? params.params : params);
   }
 
-  protected post(path: string, params?: Params<any> | any): any {
+  protected post(path: string, params?: Params<Object> | Object): any {
     let requestBody: string = "";
 
     if (params) {
@@ -83,7 +101,7 @@ abstract class GocardlessResource {
     return this.makeRequest(options, requestBody);
   }
 
-  protected put(path: string, params?: Params<any> | any): any {
+  protected put(path: string, params?: Params<Object> | Object): any {
     let requestBody: string = "";
 
     if (params) {

@@ -185,22 +185,22 @@ interface UpdateMandatesSuccessResponse {
 
 interface Mandates {
   create: (
-    params: CreateMandatesRequest & Params<CreateMandatesRequest>,
+    params: CreateMandatesRequest  |  Params<CreateMandatesRequest>,
   ) => CreateMandatesSuccessResponse;
   list: (
-    params: ListMandatesRequest & Params<ListMandatesRequest>,
+    params: ListMandatesRequest  |  Params<ListMandatesRequest>,
   ) => ListMandatesSuccessResponse;
   cancel: (
     resourceId: string,
-    params: CancelMandatesRequest & Params<CancelMandatesRequest>,
+    params: CancelMandatesRequest  |  Params<CancelMandatesRequest>,
   ) => CancelMandatesSuccessResponse;
   reinstate: (
     resourceId: string,
-    params: ReinstateMandatesRequest & Params<ReinstateMandatesRequest>,
+    params: ReinstateMandatesRequest  |  Params<ReinstateMandatesRequest>,
   ) => ReinstateMandatesSuccessResponse;
   update: (
     resourceId: string,
-    params: UpdateMandatesRequest & Params<UpdateMandatesRequest>,
+    params: UpdateMandatesRequest  |  Params<UpdateMandatesRequest>,
   ) => UpdateMandatesSuccessResponse;
   get: (resourceId: string) => GetMandatesSuccessResponse;
 }

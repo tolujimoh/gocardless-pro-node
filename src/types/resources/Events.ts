@@ -220,7 +220,7 @@ interface GetEventsSuccessResponse extends CursorResponse {
 
 interface Events {
   list: (
-    params: ListEventsRequest & Params<ListEventsRequest>,
+    params: ListEventsRequest  |  Params<ListEventsRequest>,
   ) => ListEventsSuccessResponse;
   get: (resourceId: string) => GetEventsSuccessResponse;
 }
