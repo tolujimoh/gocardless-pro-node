@@ -9,7 +9,7 @@ import {
   ListCreditorSuccessResponse,
   UpdateCreditorRequest,
   UpdateCreditorSuccessResponse,
-} from "../types/resources/creditors";
+} from "../types/resources/Creditors";
 
 class CreditorsResource extends GocardlessResource implements Creditors {
   public resourceName: string = "creditors";
