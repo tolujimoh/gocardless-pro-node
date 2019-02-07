@@ -1,6 +1,6 @@
 {
   "name": "gocardless-pro-node",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.2",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": "https://github.com/tolujimoh/gocardless-pro-node.git",
@@ -32,12 +32,14 @@
     "sourceMap": true,
     "instrument": true
   },
+  "dependencies": {
+    "@types/node": "^10.12.19"
+  },
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/chai-as-promised": "^7.1.0",
     "@types/dotenv": "^6.1.0",
     "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.19",
     "@types/sinon": "^7.0.5",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
