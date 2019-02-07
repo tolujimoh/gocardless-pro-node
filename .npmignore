@@ -73,6 +73,6 @@ test/
 coverage/
 .nyc_output/
 
-#Javascript test config Files
+#Typescript test config Files
 tslint.json
 tsconfig.json
