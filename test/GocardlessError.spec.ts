@@ -3,8 +3,8 @@ import https from "https";
 import sinon from "sinon";
 import { PassThrough } from "stream";
 
-import * as gocardless from "../src";
 import Client from "../src/Client";
+import * as gocardless from "../src/gocardless-pro-node";
 import GocardlessError from "../src/GocardlessError";
 
 import {

@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import * as gocardless from "../src";
+import * as gocardless from "../src/gocardless-pro-node";
 import CreditorBankAccountsResource from "../src/resources/CreditorBankAccountsResource";
 import CreditorsResource from "../src/resources/CreditorsResource";
 import CustomerBankAccountsResource from "../src/resources/CustomerBankAccountsResource";

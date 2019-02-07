@@ -1,8 +1,8 @@
 {
   "name": "gocardless-pro-node",
   "version": "0.0.0-alpha.5",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/gocardless-pro-node.js",
+  "types": "lib/gocardless-pro-node.d.ts",
   "repository": "https://github.com/tolujimoh/gocardless-pro-node.git",
   "author": "Tolu Jimoh <st.jimoh@outlook.com>",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "test": "mocha",
     "test:coverage": "./node_modules/.bin/nyc mocha",
     "build": "tsc",
-    "build:declaration": "tsc --declaration --outFile ./lib/index --emitDeclarationOnly",
+    "build:declaration": "tsc --declaration --outFile ./lib/gocardless-pro-node --emitDeclarationOnly",
     "build:watch": "tsc --watch"
   },
   "nyc": {

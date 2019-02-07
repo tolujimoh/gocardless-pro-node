@@ -5,8 +5,8 @@ import querystring from "querystring";
 import sinon, { SinonSpy } from "sinon";
 import { PassThrough } from "stream";
 import url from "url";
-import * as gocardless from "../src";
 import Client from "../src/Client";
+import * as gocardless from "../src/gocardless-pro-node";
 import GocardlessResource from "../src/GocardlessResource";
 import { Params } from "../src/types/resources";
 

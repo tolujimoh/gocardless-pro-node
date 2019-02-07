@@ -2,7 +2,7 @@ import { expect } from "chai";
 import https from "https";
 import sinon from "sinon";
 import { PassThrough } from "stream";
-import * as gocardless from "../../src";
+import * as gocardless from "../../src/gocardless-pro-node"
 
 import {
   GET_EVENTS_SUCCESS_RESPONSE,
