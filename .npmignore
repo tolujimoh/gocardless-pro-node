@@ -63,12 +63,16 @@ typings/
 # MAC OSX
 .DS_Store
 
-#Javascript dev Files
+#Typescript dev Files
 src/
 
-#Javascript test Files
+#Typescript test Files
 test/
 
-#Javascript test coverage Files
+#Typescript test coverage Files
 coverage/
 .nyc_output/
+
+#Javascript test config Files
+tslint.json
+tsconfig.json
