@@ -1,3 +1,4 @@
+import BankDetailsLookupsResource from "./resources/BankDetailsLookupsResource";
 import CreditorBankAccountsResource from "./resources/CreditorBankAccountsResource";
 import CreditorsResource from "./resources/CreditorsResource";
 import CustomerBankAccountsResource from "./resources/CustomerBankAccountsResource";
@@ -6,6 +7,7 @@ import CustomersResource from "./resources/CustomersResource";
 import EventsResource from "./resources/EventsResource";
 import MandateImportEntriesResource from "./resources/MandateImportEntriesResource";
 import MandateImportsResource from "./resources/MandateImportsResource";
+import MandatePdfsResource from "./resources/MandatePdfsResource";
 import MandatesResource from "./resources/MandatesResource";
 import PaymentsResource from "./resources/PaymentsResource";
 import PayoutItemsResource from "./resources/PayoutItemsResource";
@@ -21,6 +23,7 @@ import {
   Environment,
 } from "./types/client";
 
+import { BankDetailsLookups } from "./types/resources/BankDetailsLookups";
 import { CreditorBankAccounts } from "./types/resources/CreditorBankAccounts";
 import { Creditors } from "./types/resources/Creditors";
 import { CustomerBankAccounts } from "./types/resources/CustomerBankAccounts";
@@ -29,6 +32,7 @@ import { Customers } from "./types/resources/Customers";
 import { Events } from "./types/resources/Events";
 import { MandateImportEntries } from "./types/resources/MandateImportEntries";
 import { MandateImports } from "./types/resources/MandateImports";
+import { MandatePdfs } from "./types/resources/MandatePdfs";
 import { Mandates } from "./types/resources/Mandates";
 import { Payments } from "./types/resources/Payments";
 import { PayoutItems } from "./types/resources/PayoutItems";
@@ -109,6 +113,8 @@ class Client implements ClientInteface {
   public redirect_flows: RedirectFlows;
   public refunds: Refunds;
   public subscriptions: Subscriptions;
+  public bank_details_lookups: BankDetailsLookups;
+  public mandate_pdfs: MandatePdfs;
 
   private _auth: string = "";
   private _host: string = "";
@@ -150,6 +156,8 @@ class Client implements ClientInteface {
     this.redirect_flows = new RedirectFlowsResource(this);
     this.refunds = new RefundsResource(this);
     this.subscriptions = new SubscriptionsResource(this);
+    this.bank_details_lookups = new BankDetailsLookupsResource(this);
+    this.mandate_pdfs = new MandatePdfsResource(this);
   }
 
   private verifyConfig(
