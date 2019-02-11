@@ -13,13 +13,13 @@ See Gocardless Pro [API Reference](https://developer.gocardless.com/api-referenc
 
 Install the package with
 
-```
+```sh
 npm install gocardless-pro-node --save
 ```
 
 or
 
-```
+```sh
 yarn add gocardless-pro-node
 ```
 
@@ -27,12 +27,12 @@ yarn add gocardless-pro-node
 
 Create a `Client` instance and provide the access_token and environment you want to use.
 
-```
-const gocardlessPro = require('gocardless-pro-node');
+```js
+const gocardlessPro = require("gocardless-pro-node");
 
 // Gets Access Token stored in environment variable
 const access_token = process.env.ACCESS_TOKEN;
-const environment = 'sandbox';
+const environment = "sandbox";
 
 const client = new gocardlessPro.Client({
   access_token,
@@ -48,39 +48,42 @@ const customers = await client.customers.list({
 
 ### Usage with Typescript
 
-```
-import * as gocardlessPro from 'gocardless-pro-node';
+```ts
+import * as gocardlessPro from "gocardless-pro-node";
 
 // Gets Access Token stored in environment variable
 const access_token = process.env.ACCESS_TOKEN;
-const environment = 'sandbox';
+const environment = "sandbox";
 
 const client = new gocardlessPro.Client({
   access_token,
   environment
 });
 
-client.customers.list({
-  params: {
-    limit: 30
-  }
-}).then((customers) => {
-  // List of customers
-}).catch((error) => {
-  // Handle error
-})
+client.customers
+  .list({
+    params: {
+      limit: 30
+    }
+  })
+  .then(customers => {
+    // List of customers
+  })
+  .catch(error => {
+    // Handle error
+  });
 ```
 
 ### Events
 
 The Gocardless Client instance emits `request` and `response` events
 
-```
-const gocardlessPro = require('gocardless-pro-node');
+```js
+const gocardlessPro = require("gocardless-pro-node");
 
 // Gets Access Token stored in environment variable
 const access_token = process.env.ACCESS_TOKEN;
-const environment = 'sandbox';
+const environment = "sandbox";
 
 const client = new gocardlessPro.Client({
   access_token,
@@ -88,12 +91,12 @@ const client = new gocardlessPro.Client({
 });
 
 // Add the request event handler function:
-client.on('request', (request) => {
+client.on("request", request => {
   // Carry out some actions
 });
 
 // Add the request event handler function:
-client.on('response', (response) => {
+client.on("response", response => {
   // Carry out some actions
 });
 ```
@@ -122,21 +125,21 @@ client.on('response', (response) => {
 
 Running tests
 
-```
+```sh
 $ npm install
 $ npm test
 ```
 
 or
 
-```
+```sh
 $ yarn
 $ yarn test
 ```
 
 To use your Sandbox Access Token to run the tests, you need to set the environment variable `SANDBOX_ACCESS_TOKEN`
 
-```
+```sh
 $ export SANDBOX_ACCESS_TOKEN='Your Sandbox Access Token'
 $ npm test
 ```
