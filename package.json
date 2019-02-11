@@ -1,6 +1,6 @@
 {
   "name": "gocardless-pro-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/gocardless-pro-node.js",
   "types": "lib/gocardless-pro-node.d.ts",
   "repository": "https://github.com/tolujimoh/gocardless-pro-node.git",
