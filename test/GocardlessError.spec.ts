@@ -57,6 +57,22 @@ describe("GocardlessError", () => {
     expect(e.request_id).to.be.equal(errorObject.request_id);
   });
 
+  it("it populates GocardlessError missing parameters with default values", () => {
+    const errorObject = {
+      message: "Unable to send request",
+      type: "internal_server_error",
+      code: 500,
+    };
+    const e = new GocardlessError(errorObject);
+
+    expect(e.message).to.be.equal(errorObject.message);
+    expect(e.code).to.be.equal(errorObject.code);
+    expect(e.type).to.be.equal(errorObject.type);
+    expect(e.documentation_url).to.be.equal("");
+    expect(e.errors).to.be.eql([]);
+    expect(e.request_id).to.be.equal("");
+  });
+
   describe("returns HTTP 422 response", () => {
     it("throws an error with instance of Gocardless Error", () => {
       const request: PassThrough = new PassThrough();

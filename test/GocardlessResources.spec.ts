@@ -7,6 +7,7 @@ import { PassThrough } from "stream";
 import url from "url";
 import Client from "../src/Client";
 import * as gocardless from "../src/gocardless-pro-node";
+import GocardlessError from "../src/GocardlessError";
 import GocardlessResource from "../src/GocardlessResource";
 import { Params } from "../src/types/resources";
 
@@ -139,8 +140,35 @@ describe("GocardlessResources", () => {
       httpsStub.returns(request);
 
       return expect(resourceClass.makeRequest(options)).to.be.rejectedWith(
+        GocardlessError,
         JSON.stringify(errorBody),
       );
+    });
+
+    it("Bad response body throws an error", async () => {
+      const options: RequestOptions = {
+        hostname: client.host,
+        port: 443,
+        path: "/",
+        method: "POST",
+        headers: {
+          "Authorization": client.auth,
+          "GoCardless-Version": client.version,
+          "Accept": "application/json",
+        },
+      };
+
+      const request: PassThrough = new PassThrough();
+
+      const response: PassThrough = new PassThrough();
+      response.write("BadResponseBody");
+      response.end();
+
+      httpsStub.callsArgWith(1, response).returns(request);
+
+      return expect(
+        resourceClass.makeRequest(options),
+      ).to.eventually.be.rejectedWith(GocardlessError);
     });
   });
 
@@ -234,8 +262,7 @@ describe("GocardlessResources", () => {
     });
 
     it("adds Authorization Header", () => {
-      const params = {};
-      resourceClass.put(`${resourceClass.resourceName}`, params);
+      resourceClass.put(`${resourceClass.resourceName}`);
       expect(httpsStub.args[0][0].headers.Authorization).to.be.equal(
         client.auth,
       );

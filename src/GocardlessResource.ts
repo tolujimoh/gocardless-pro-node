@@ -49,8 +49,14 @@ abstract class GocardlessResource {
         });
       });
 
-      req.on("error", (e) => {
-        reject(e);
+      req.on("error", ({ message }) => {
+        reject(
+          new GocardlessError({
+            message,
+            type: "internal_server_error",
+            code: 500,
+          }),
+        );
       });
 
       if (requestBody) {

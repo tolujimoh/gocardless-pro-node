@@ -1,7 +1,6 @@
 import { GocardlessErrorObject } from "./types/errors";
 
 class GocardlessError extends Error {
-  private _message: string;
   private _type: string;
   private _code: number;
   private _request_id: string;
@@ -18,16 +17,11 @@ class GocardlessError extends Error {
   }: GocardlessErrorObject) {
     super(message);
 
-    this._message = message;
     this._type = type;
     this._code = code;
     this._request_id = request_id;
     this._documentation_url = documentation_url;
     this._errors = errors;
-  }
-
-  get message(): string {
-    return this._message;
   }
 
   get type(): string {
