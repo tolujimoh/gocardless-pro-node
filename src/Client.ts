@@ -1,3 +1,5 @@
+import { EventEmitter } from "events";
+
 import BankDetailsLookupsResource from "./resources/BankDetailsLookupsResource";
 import CreditorBankAccountsResource from "./resources/CreditorBankAccountsResource";
 import CreditorsResource from "./resources/CreditorsResource";
@@ -48,7 +50,7 @@ import {
   SANDBOX_ENIVIRONMENT_URL,
 } from "./Constants";
 
-class Client implements ClientInteface {
+class Client extends EventEmitter implements ClientInteface {
   set environment(environment: Environment) {
     this.host = Client.getHostByEnvironment(environment);
     this._environment = environment;
@@ -125,6 +127,8 @@ class Client implements ClientInteface {
   constructor(
     private clientConfig: ClientConfigWithEnvironment | ClientConfigWithBaseUrl,
   ) {
+    super();
+
     this.verifyConfig(clientConfig);
 
     const { access_token } = clientConfig;

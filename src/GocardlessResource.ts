@@ -19,9 +19,8 @@ abstract class GocardlessResource {
 
   public makeRequest(options: RequestOptions, requestBody?: string) {
     return new Promise((resolve, reject) => {
+      this.client.emit("request", options);
       const req = https.request(options, (res) => {
-        // console.log('statusCode:', res.statusCode);
-        // console.log('headers:', res.headers);
         let resBody = "";
 
         res.on("data", (resChunk) => {
@@ -31,6 +30,7 @@ abstract class GocardlessResource {
         res.on("end", () => {
           try {
             const parsedResBody: Object = JSON.parse(resBody);
+            this.client.emit("response", parsedResBody);
 
             if ("error" in parsedResBody) {
               reject(new GocardlessError(parsedResBody[`error`]));
